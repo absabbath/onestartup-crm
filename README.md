@@ -4,15 +4,10 @@
 
 # Installation
 
-- Add this to composer.json file
+- Run this in the terminal
 ```php
-"onestartup/crm": "~0.0.1"
+composer require onestartup/crm
 ```
-and  run 
-```php
-composer update
-````
-
 - after add the ServiceProvider to the providers array in config/app.php
 ```php
 Onestartup\Crm\CrmListServiceProvider::class,
