@@ -13,7 +13,7 @@ class AdminCrmController extends Controller
 
     public function list()
     {
-    	return view('crm::list')->with('var', 'varx');
+    	return view('crm::list');
     }
 
     public function datatable()
@@ -30,7 +30,9 @@ class AdminCrmController extends Controller
 
     public function show($id)
     {
+        $interested = Interested::find($id);
 
-    	return "asd";
+        return view('crm::show')
+            ->with('interested', $interested);
     }
 }
