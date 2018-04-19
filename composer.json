@@ -1,0 +1,17 @@
+{
+    "name": "onestartup/crm",
+    "description": "record management with tracking log",
+    "type": "library",
+    "license": "Apache-2.0",
+    "authors": [
+        {
+            "name": "Angel MAS",
+            "email": "angelmartin.isc@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {},
+    "autoload": {
+        "psr-4": {"Onestartup\\Crm\\": "src"}
+    }
+}
