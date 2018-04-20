@@ -14,6 +14,7 @@ class CrmListServiceProvider extends ServiceProvider
     public function boot()
     {
         include __DIR__.'/routes.php';
+        $this->loadMigrationsFrom(__DIR__.'/migrations');
     }
 
     /**

@@ -12,6 +12,24 @@ composer require onestartup/crm
 ```php
 Onestartup\Crm\CrmListServiceProvider::class,
 ````
+- Run migration
+```php
+php artisan migrate
+```
+- add next lines to app/User.php
+```php
+public function tracings()
+{
+    return $this->hasMany('Onestartup\Crm\Tracing', 'user_id');
+}
+```
+- add next lines to app/Interested.php
+```php
+public function tracings()
+{
+    return $this->hasMany('Onestartup\Crm\Tracing', 'interested_id');
+}
+```
 - run serv
 ```php
 php artisan serve

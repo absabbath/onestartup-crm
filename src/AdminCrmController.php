@@ -7,6 +7,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use Yajra\Datatables\Datatables;
 use App\Interested;
+use Onestartup\Crm\Tracing;
 
 class AdminCrmController extends Controller
 {
@@ -34,5 +35,18 @@ class AdminCrmController extends Controller
 
         return view('crm::show')
             ->with('interested', $interested);
+    }
+
+    public function storeTracing(Request $request, $id)
+    {
+        $interested = Interested::find($id);
+        $comment = new Tracing($request->all());
+        $comment->user_id = \Auth::user()->id;
+
+        $interested->tracings()->save($comment);
+
+        return redirect()
+            ->back()
+            ->with('message_success', 'Información agregada correctamente');
     }
 }

@@ -41,6 +41,63 @@
       </div>
     </div>
   </div>
+
+  <div class="row">
+    <div class="col-md-10 offset-1">
+      <div class="box">
+        <div class="box-header dark">
+          <b>Bitacora de seguimiento</b>
+          <span>
+            <a class="btn btn-sm btn-default" data-target="#m-a-a" data-toggle="modal" href="#" ui-target="#animate" ui-toggle-class="zoom">
+              Agregar seguimiento
+            </a>
+          </span>
+        </div>
+        <div class="box-body">
+          @if($interested->tracings()->count() > 0)
+
+            <ul class="timeline">
+              @foreach( $interested->tracings as $comment)
+                <li class="tl-item">
+                  <div class="tl-wrap b-primary">
+                    <span class="tl-date text-muted">{{$comment->created_at}}</span>
+                    <div class="tl-content box-color text-color w-xl w-auto-xs">
+                      <span class="arrow b-white left pull-top"></span>
+                      <div class="text-lt p-x m-b-sm">
+                        {{$comment->type}}
+                      </div>
+                      <div class="p-a b-t b-light">
+                        {{$comment->detail}}
+                      </div>
+                    </div>
+                  </div>
+                </li>
+              @endforeach
+            </ul>
+
+          @else
+            <p>No se han agregado registros</p>
+          @endif
+
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+<div class="modal fade animate" data-backdrop="true" id="m-a-a">
+  <div class="modal-dialog" id="animate">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Agregar seguimiento</h5>
+      </div>
+      <div class="modal-body text-center p-lg">
+        @include('crm::form-bitacora')
+      </div>
+    </div>
+  </div>
+</div>
+
 
 @endsection
